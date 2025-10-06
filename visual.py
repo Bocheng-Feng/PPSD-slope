@@ -4,11 +4,10 @@ from scipy.spatial import cKDTree
 import matplotlib.pyplot as plt
 from matplotlib.colors import LogNorm
 import os
-from helpers.SimulationAnalysis import readHlist, getDistance  
-from helpers.readGadgetSnapshot import readGadgetSnapshot
+from SimulationAnalysis import readHlist, getDistance  
 import read_gadget
 
-def field_map(snap_dir, hlist_dir, n_neighbor=100, slice_thickness=0.4, box_size=1):
+def field_map(snap_dir, hlist_dir, halo_id, output_dir, n_neighbor=100, slice_thickness=0.4, box_size=1):
     """
     Visualize snapshot fields (density, radial PPSD) in the global coordinate system.
 
@@ -38,8 +37,7 @@ def field_map(snap_dir, hlist_dir, n_neighbor=100, slice_thickness=0.4, box_size
     halos = readHlist(hlist_file, fields=fields)
 
     # --- Load host properties ---
-    host_halos = halos[halos['upid'] == -1]
-    main_host = host_halos[host_halos['Mvir'].argmax()]
+    main_host = halos[halos['id']==halo_id]
 
     host_x = main_host['x'] / h100 * 1000 # kpc
     host_y = main_host['y'] / h100 * 1000
@@ -105,16 +103,9 @@ def field_map(snap_dir, hlist_dir, n_neighbor=100, slice_thickness=0.4, box_size
         plt.ylabel("y [kpc]")
         plt.colorbar(hb, label=label)
         plt.tight_layout()
-        plt.savefig(f'/home/bocheng/Projects/Concerto-PPSD/{label}.png', dpi=500)
+        plt.savefig(os.path.join(output_dir, f'/{label}.png'))
 
     # --- Plot all fields ---
     plot_hexbin(Q_r, 'PPSD', cmap='magma')
-    plot_hexbin(rho, 'Density', cmap='viridis')
-
-field_map(
-    snap_dir='/media/31TB4/Bocheng/Concerto/ConcertoLMCHR/Halo104-CDM/particles/snapshot_235',
-    hlist_dir='/media/31TB4/Bocheng/Concerto/ConcertoLMCHR/Halo104-CDM/rockstar/hlists',
-    n_neighbor=100,
-    slice_thickness=0.4,
-    box_size=10,
-)
+    plot_hexbin(sigma_r**2, "Temperature", cmap='coolwarm')
+    plot_hexbin(rho, 'Density', cmap='magma')

@@ -11,5 +11,5 @@ Group,8K,352,GroupSIDM_70,154370551,2.8198e5,170,"h = 0.7, Omega_m = 0.286, Omeg
 Group,8K,352,GroupSIDM,148358078,2.8198e5,170,"h = 0.7, Omega_m = 0.286, Omega_Lambda = 0.714, sigma_8 = 0.82, n_s = 0.96"
 Group,8K,962,CDM,368707831,2.8198e5,170,"h = 0.7, Omega_m = 0.286, Omega_Lambda = 0.714, sigma_8 = 0.82, n_s = 0.96"
 Group,8K,962,GroupSIDM_70,346067927,2.8198e5,170,"h = 0.7, Omega_m = 0.286, Omega_Lambda = 0.714, sigma_8 = 0.82, n_s = 0.96"
-L-Cluster,16K,"""000""",CDM,37445193,1.893e7,600,"h = 0.7, Omega_m = 0.3, Omega_Lambda = 0.7, sigma_8 = 0.85, n_s = 0.96"
-L-Cluster,16K,"""000""",GroupSIDM,34820679,1.893e7,600,"h = 0.7, Omega_m = 0.3, Omega_Lambda = 0.7, sigma_8 = 0.85, n_s = 0.96"
+L-Cluster,16K,000,CDM,37445193,1.893e7,600,"h = 0.7, Omega_m = 0.3, Omega_Lambda = 0.7, sigma_8 = 0.85, n_s = 0.96"
+L-Cluster,16K,000,GroupSIDM,34820679,1.893e7,600,"h = 0.7, Omega_m = 0.3, Omega_Lambda = 0.7, sigma_8 = 0.85, n_s = 0.96"
