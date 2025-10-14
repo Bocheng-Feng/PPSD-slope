@@ -37,7 +37,7 @@ def field_map(snap_dir, hlist_dir, halo_id, output_dir, n_neighbor=100, slice_th
     halos = readHlist(hlist_file, fields=fields)
 
     # --- Load host properties ---
-    main_host = halos[halos['id']==halo_id]
+    main_host = halos[halos['id']==halo_id][0]
 
     host_x = main_host['x'] / h100 * 1000 # kpc
     host_y = main_host['y'] / h100 * 1000

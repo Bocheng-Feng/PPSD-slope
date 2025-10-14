@@ -63,7 +63,7 @@ def halo_profiles(halo_dir, halo_name=None):
     axs[0,1].set_ylabel(r"$\sigma / V_{\rm vir}$")
     axs[0,1].set_title("Velocity Dispersion")
     axs[0,1].set_xscale('log')
-    axs[0,1].set_yscale('log')
+    axs[0,1].set_yscale('linear')
     axs[0,1].legend(frameon=True)
     axs[0,1].grid(True, which='both', linestyle='--', alpha=0.5)
 
